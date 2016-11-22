@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  proteinas: 1
+  carboidratos: 1
+  gorduras: 1
+  calorias: 1
+  preco: 1
+  ingrediente: MyString
+  Tipo_de_ingrediente_id: 1
+  marca: MyString
+
+two:
+  nome: MyString
+  proteinas: 1
+  carboidratos: 1
+  gorduras: 1
+  calorias: 1
+  preco: 1
+  ingrediente: MyString
+  Tipo_de_ingrediente_id: 1
+  marca: MyString
