@@ -15,6 +15,12 @@ CREATE VIEW RelatorioLojasPorCidade AS
     GROUP BY c.nome
     ORDER BY c.nome;
 
+CREATE VIEW LojasELocais AS
+    SELECT c.nome as cidade_nome, e.nome as estado_nome, ende.CEP, logra.nome as logradouro_nome, l.*
+    FROM cidade as c, estado as e, logradouro as logra, loja as l, endereco as ende
+    WHERE ende.id = l.endereco_id AND logra.id = ende.logradouro_id AND c.id = logra.cidade_id AND e.id = c.estado_id
+    ORDER BY c.nome;
+
 CREATE VIEW VeiculosEntregaHoje AS
 	SELECT v.id, v.placa
 	FROM veiculo v, entrega e
