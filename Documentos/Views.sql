@@ -26,17 +26,36 @@ CREATE VIEW VeiculosEntregaHoje AS
 	FROM veiculo v, entrega e
 	WHERE e.data_hora = CURRENT_DATE AND e.veiculo_id = v.id
 
+-- Trigger
+
 CREATE OR REPLACE FUNCTION FazPedidoReduzEstoque()
-	RETURNS trigger AS
+	RETURNS trigger AS $$
 BEGIN
 	UPDATE estoque_loja as el 
 	SET el.quantidade = el.quantidade - NEW.quantidade  
 	WHERE NEW.alimento_id = el.alimento_id
-	RETURN NEW;
+	RETURNING NEW;
 END;
+$$
+LANGUAGE plpgsql;
 
 CREATE TRIGGER FazPedidoReduzEstoque
-  BEFORE INSERT INTO
-  ON intes_pedido
+  BEFORE INSERT
+  ON itens_pedido
   FOR EACH ROW
   EXECUTE PROCEDURE FazPedidoReduzEstoque();
+
+-- Stored Procedure
+
+CREATE OR REPLACE FUNCTION DeletaPesquisasAntigas()
+RETURNS void AS $$
+BEGIN
+  DELETE FROM pesquisa pes
+  WHERE pes.id IN
+    (
+      SELECT ped.pesquisa_id
+      FROM pedido ped
+      WHERE ped.date + INTERVAL '5 years' < current_date
+    );
+END;
+$$ LANGUAGE 'plpgsql';
