@@ -6,3 +6,6 @@ from Loja.models import Loja
 class Funcionario_Loja(models.Model):
     funcionario = models.ForeignKey(Funcionario, null=False, default=0)
     loja = models.ForeignKey(Loja, null=False, default=0)
+
+    class Meta:
+        db_table = "funcionario_loja"

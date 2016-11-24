@@ -13,3 +13,6 @@ class Pedido(models.Model):
 
     def __str__(self):
         return self.numero_nota_fiscal
+
+    class Meta:
+        db_table = "pedido"

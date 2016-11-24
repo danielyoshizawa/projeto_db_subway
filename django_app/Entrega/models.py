@@ -10,3 +10,6 @@ class Entrega(models.Model):
 
     def __str__(self):
         return self.data_hora
+
+    class Meta:
+        db_table = "entrega"

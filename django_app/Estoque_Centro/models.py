@@ -10,3 +10,6 @@ class Estoque_Centro(models.Model):
 
     def __str(self):
         return self.alimento
+
+    class Meta:
+        db_table = "estoque_centro"

@@ -10,3 +10,6 @@ class Pesquisa(models.Model):
 
     def __str__(self):
         return "Atendimento : " + self.atendimento
+
+    class Meta:
+        db_table = "pesquisa"

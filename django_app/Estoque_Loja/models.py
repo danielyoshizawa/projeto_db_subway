@@ -8,3 +8,6 @@ class Estoque_Loja(models.Model):
 
     def __str__(self):
         return self.alimento
+
+    class Meta:
+        db_table = "estoque_loja"

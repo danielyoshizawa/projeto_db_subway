@@ -8,3 +8,6 @@ class Distribuidores_Tercerizados_Bebidas(models.Model):
 
     def __str__(self):
         return self.alimento
+
+    class Meta:
+        db_table = "distribuidor_tercerizados_bebidas"

@@ -10,3 +10,6 @@ class Itens_Pedido(models.Model):
 
     def __str__(self):
         return self.pedido.numero_nota_fiscal
+
+    class Meta:
+        db_table = "itens_pedido"

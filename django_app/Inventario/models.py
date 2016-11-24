@@ -8,3 +8,6 @@ class Inventario(models.Model):
 
     def __str__(self):
         return self.item_de_inventario.nome
+
+    class Meta:
+        db_table = "inventario"

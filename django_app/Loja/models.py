@@ -19,3 +19,6 @@ class Loja(models.Model):
 
     def __str__(self):
         return self.endereco.logradouro.nome
+
+    class Meta:
+        db_table = "loja"

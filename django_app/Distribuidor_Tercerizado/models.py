@@ -4,3 +4,6 @@ from django.db import models
 class Distribuidor_Tercerizado(models.Model):
     nome = models.TextField(null=False)
     contato = models.IntegerField(null=False)
+
+    class Meta:
+        db_table = "distribuidor_tercerizado"

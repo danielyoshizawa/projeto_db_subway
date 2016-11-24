@@ -10,3 +10,6 @@ class Endereco(models.Model):
 
     def __str__(self):
         return self.logradouro.nome
+
+    class Meta:
+        db_table = "endereco"

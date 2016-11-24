@@ -9,3 +9,6 @@ class Veiculo(models.Model):
 
     def __str__(self):
         return self.placa
+
+    class Meta:
+        db_table = "veiculo"

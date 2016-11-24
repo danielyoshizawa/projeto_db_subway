@@ -10,3 +10,6 @@ class Entrega_Alimento(models.Model):
 
     def __str__(self):
         return self.alimento
+
+    class Meta:
+        db_table = "entrega_alimento"
