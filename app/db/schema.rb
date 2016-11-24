@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123075432) do
+ActiveRecord::Schema.define(version: 20161124015218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "Funcionarios_Lojas", id: false, force: :cascade do |t|
+    t.integer "loja_id",        null: false
+    t.integer "funcionario_id", null: false
+  end
 
   create_table "alimentos", force: :cascade do |t|
     t.string   "nome",                   null: false
@@ -114,10 +119,37 @@ ActiveRecord::Schema.define(version: 20161123075432) do
     t.index ["cidade_id"], name: "index_logradouros_on_cidade_id", using: :btree
   end
 
+  create_table "lojas", force: :cascade do |t|
+    t.integer  "capacidade"
+    t.decimal  "area"
+    t.boolean  "franquia"
+    t.integer  "cnpj"
+    t.integer  "funcionario_id",  null: false
+    t.integer  "endereco_id",     null: false
+    t.integer  "estoque_loja_id", null: false
+    t.integer  "inventario_id",   null: false
+    t.integer  "proprietario_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["endereco_id"], name: "index_lojas_on_endereco_id", using: :btree
+    t.index ["estoque_loja_id"], name: "index_lojas_on_estoque_loja_id", using: :btree
+    t.index ["funcionario_id"], name: "index_lojas_on_funcionario_id", using: :btree
+    t.index ["inventario_id"], name: "index_lojas_on_inventario_id", using: :btree
+    t.index ["proprietario_id"], name: "index_lojas_on_proprietario_id", using: :btree
+  end
+
   create_table "pais", force: :cascade do |t|
     t.string   "nome",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pedidos", force: :cascade do |t|
+    t.integer  "numero_nota_fiscal"
+    t.datetime "data"
+    t.decimal  "total"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "proprietarios", force: :cascade do |t|
@@ -145,5 +177,10 @@ ActiveRecord::Schema.define(version: 20161123075432) do
   add_foreign_key "funcionarios", "enderecos"
   add_foreign_key "inventarios", "item_de_inventarios"
   add_foreign_key "logradouros", "cidades"
+  add_foreign_key "lojas", "enderecos"
+  add_foreign_key "lojas", "estoque_lojas"
+  add_foreign_key "lojas", "funcionarios"
+  add_foreign_key "lojas", "inventarios"
+  add_foreign_key "lojas", "proprietarios"
   add_foreign_key "proprietarios", "enderecos"
 end

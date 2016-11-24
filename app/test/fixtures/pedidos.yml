@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_nota_fiscal: 
+  data: 
+  total: 9.99
+
+two:
+  numero_nota_fiscal: 
+  data: 
+  total: 9.99

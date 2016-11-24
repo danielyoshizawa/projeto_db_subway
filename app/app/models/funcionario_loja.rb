@@ -1,0 +1,2 @@
+class FuncionarioLoja < ApplicationRecord
+end

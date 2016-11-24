@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  capacidade: 1
+  area: 9.99
+  franquia: false
+  cnpj: 1
+
+two:
+  capacidade: 1
+  area: 9.99
+  franquia: false
+  cnpj: 1
