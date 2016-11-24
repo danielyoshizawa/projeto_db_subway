@@ -9,17 +9,16 @@ CREATE VIEW RelatorioPedidos AS
     WHERE fu.id = fl.funcionario_id AND fu.id = p.funcionario_id;
 
 CREATE VIEW RelatorioLojasPorCidade AS
-    SELECT c.nome, e.nome, end.CEP, log.nome
-    FROM cidade as c, estado as e, log as logradouro, loja as l
-    WHERE end.id = l.endereco_id AND log.id = end.logradouro_id AND c.id = log.cidade_id AND e.id = c.estado_id
-    GROUP BY e.nome 
+    SELECT c.nome, count(l.*)
+    FROM cidade as c, logradouro as log, loja as l, endereco as ende
+    WHERE ende.id = l.endereco_id AND log.id = ende.logradouro_id AND c.id = log.cidade_id
+    GROUP BY c.nome
     ORDER BY c.nome;
 
 CREATE VIEW VeiculosEntregaHoje AS
 	SELECT v.id, v.placa
-	FROM veiculos v, entregas e,
-	WHERE e.data = current_timestamp AND e.id_veiculo = v.id
-
+	FROM veiculo v, entrega e
+	WHERE e.data_hora = current_timestamp AND e.id_veiculo = v.id
 
 CREATE OR REPLACE FUNCTION FazPedidoReduzEstoque()
 	RETURNS trigger AS
