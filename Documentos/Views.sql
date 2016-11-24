@@ -18,7 +18,7 @@ CREATE VIEW RelatorioLojasPorCidade AS
 CREATE VIEW VeiculosEntregaHoje AS
 	SELECT v.id, v.placa
 	FROM veiculo v, entrega e
-	WHERE e.data_hora = current_timestamp AND e.id_veiculo = v.id
+	WHERE e.data_hora = CURRENT_DATE AND e.veiculo_id = v.id
 
 CREATE OR REPLACE FUNCTION FazPedidoReduzEstoque()
 	RETURNS trigger AS
