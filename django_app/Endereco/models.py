@@ -3,7 +3,10 @@ from Logradouro.models import Logradouro
 # Create your models here.
 
 class Endereco(models.Model):
-    cep = models.IntegerField()
-    complemento = models.TextField()
-    numero = models.IntegerField()
-    logradouro = models.ForeignKey(Logradouro,blank=False, null=True)
+    cep = models.IntegerField(null=False)
+    complemento = models.TextField(null=False)
+    numero = models.IntegerField(null=False)
+    logradouro = models.ForeignKey(Logradouro,blank=False, null=False)
+
+    def __str__(self):
+        return self.logradouro.nome

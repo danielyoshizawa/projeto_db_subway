@@ -3,6 +3,9 @@ from Pais.models import Pais
 
 # Create your models here.
 class Estado(models.Model):
-    nome = models.TextField()
-    sigla = models.TextField()
-    pais = models.ForeignKey(Pais,blank=False, null=True)
+    nome = models.TextField(null=False)
+    sigla = models.TextField(null=False)
+    pais = models.ForeignKey(Pais,blank=False, null=False)
+
+    def __str__(self):
+        return self.nome

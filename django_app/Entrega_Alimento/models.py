@@ -4,6 +4,9 @@ from Entrega.models import Entrega
 
 # Create your models here.
 class Entrega_Alimento(models.Model):
-    alimento = models.ForeignKey(Alimento,blank=False, null=True)
-    entrega = models.ForeignKey(Entrega,blank=False, null=True)
-    quantidade = models.IntegerField()
+    alimento = models.ForeignKey(Alimento,blank=False, null=False)
+    entrega = models.ForeignKey(Entrega,blank=False, null=False)
+    quantidade = models.IntegerField(null=False)
+
+    def __str__(self):
+        return self.alimento

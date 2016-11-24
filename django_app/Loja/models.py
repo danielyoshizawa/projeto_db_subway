@@ -7,12 +7,15 @@ from Proprietario.models import Proprietario
 
 # Create your models here.
 class Loja(models.Model):
-    capacidade = models.IntegerField()
-    area = models.FloatField()
-    gerente = models.ForeignKey(Funcionario, blank=False, null=True)
-    endereco = models.ForeignKey(Endereco, blank=False, null=True)
-    estoque = models.ForeignKey(Estoque_Loja,blank=False, null=True)
-    inventario = models.ForeignKey(Inventario,blank=False, null=True)
-    franquia = models.BooleanField()
-    cnpj = models.IntegerField()
-    proprietario = models.ForeignKey(Proprietario,blank=False, null=True)
+    capacidade = models.IntegerField(null=False)
+    area = models.FloatField(null=False)
+    gerente = models.ForeignKey(Funcionario, blank=False, null=False)
+    endereco = models.ForeignKey(Endereco, blank=False, null=False)
+    estoque = models.ForeignKey(Estoque_Loja,blank=False, null=False)
+    inventario = models.ForeignKey(Inventario,blank=False, null=False)
+    franquia = models.BooleanField(null=False)
+    cnpj = models.IntegerField(null=False)
+    proprietario = models.ForeignKey(Proprietario,blank=False, null=False)
+
+    def __str__(self):
+        return self.endereco.logradouro.nome

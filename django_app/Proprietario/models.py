@@ -3,7 +3,10 @@ from Endereco.models import Endereco
 
 # Create your models here.
 class Proprietario(models.Model):
-    nome = models.TextField()
-    cpf = models.IntegerField()
-    data_nascimento = models.DateField()
-    endereco = models.ForeignKey(Endereco,blank=False, null=True)
+    nome = models.TextField(null=False)
+    cpf = models.IntegerField(null=False)
+    data_nascimento = models.DateField(null=False)
+    endereco = models.ForeignKey(Endereco,blank=False, null=False)
+
+    def __str__(self):
+        return self.nome

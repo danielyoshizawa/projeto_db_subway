@@ -7,3 +7,6 @@ class Pesquisa(models.Model):
     preco = models.IntegerField()
     ambiente = models.IntegerField()
     sugestoes = models.TextField()
+
+    def __str__(self):
+        return "Atendimento : " + self.atendimento

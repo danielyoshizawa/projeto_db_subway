@@ -4,6 +4,9 @@ from Veiculo.models import Veiculo
 
 # Create your models here.
 class Entrega(models.Model):
-    data_hora = models.DateTimeField()
-    destino = models.ForeignKey(Loja,blank=False, null=True)
-    veiculo = models.ForeignKey(Veiculo,blank=False, null=True)
+    data_hora = models.DateTimeField(null=False)
+    destino = models.ForeignKey(Loja, blank=False, null=False)
+    veiculo = models.ForeignKey(Veiculo, blank=False, null=False)
+
+    def __str__(self):
+        return self.data_hora

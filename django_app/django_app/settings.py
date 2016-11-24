@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     'Proprietario',
     'Tipo_de_Ingrediente',
     'Veiculo',
+    'Funcionario_Loja',
+    'Distribuidores_Tercerizados_Bebidas',
 ]
 
 MIDDLEWARE = [
