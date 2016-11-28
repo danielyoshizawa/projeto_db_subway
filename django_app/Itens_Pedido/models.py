@@ -9,7 +9,7 @@ class Itens_Pedido(models.Model):
     quantidade = models.IntegerField(null=False)
 
     def __str__(self):
-        return self.pedido.numero_nota_fiscal
+        return str(self.pedido.numero_nota_fiscal)
 
     class Meta:
         db_table = "itens_pedido"

@@ -8,8 +8,5 @@ class Pesquisa(models.Model):
     ambiente = models.IntegerField()
     sugestoes = models.TextField()
 
-    def __str__(self):
-        return "Atendimento : " + self.atendimento
-
     class Meta:
         db_table = "pesquisa"

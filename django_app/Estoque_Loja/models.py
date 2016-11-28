@@ -7,7 +7,7 @@ class Estoque_Loja(models.Model):
     quantida = models.IntegerField(null=False)
 
     def __str__(self):
-        return self.alimento
+        return self.alimento.nome
 
     class Meta:
         db_table = "estoque_loja"

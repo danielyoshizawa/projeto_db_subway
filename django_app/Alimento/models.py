@@ -11,7 +11,7 @@ class Alimento(models.Model):
     ingrediente = models.BooleanField(null=False)
     recheiro = models.BooleanField(null=False)
     tipo = models.ForeignKey(Tipo_de_Ingrediente, blank=False, null=False)
-    marca = models.TextField(max_length=256, blank=False, null=False, default='')
+    marca = models.TextField(max_length=256, blank=True, null=True, default='')
 
     def __str__(self):
         return self.nome

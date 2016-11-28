@@ -8,11 +8,11 @@ class Pedido(models.Model):
     data = models.DateField(null=False)
     total = models.FloatField(null=False)
     pesquisa = models.ForeignKey(Pesquisa,blank=False, null=False)
-    funcionario = models.ForeignKey(Funcionario,blank=False, null=False)
+    funcionario = models.ForeignKey(Funcionario,blank=True, null=False)
 
 
     def __str__(self):
-        return self.numero_nota_fiscal
+        return str(self.numero_nota_fiscal)
 
     class Meta:
         db_table = "pedido"

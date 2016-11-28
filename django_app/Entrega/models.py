@@ -9,7 +9,7 @@ class Entrega(models.Model):
     veiculo = models.ForeignKey(Veiculo, blank=False, null=False)
 
     def __str__(self):
-        return self.data_hora
+        return str(self.data_hora)
 
     class Meta:
         db_table = "entrega"

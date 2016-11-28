@@ -9,7 +9,7 @@ class Entrega_Alimento(models.Model):
     quantidade = models.IntegerField(null=False)
 
     def __str__(self):
-        return self.alimento
+        return self.alimento.nome
 
     class Meta:
         db_table = "entrega_alimento"
